@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNet.Identity;
+@using NewsPortal.Models;
+@using Content = EngContent.ContentEng;
+@model NewsPortal.Models.NewsPageViewModel
+
+
+@{
+    ViewBag.Title = Content.View_Title;
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink(Content.Index_View_AddNewsItem, "Create", "News")
+}
+
+<main class="News">
+    @foreach (NewsItemViewModel newsItem in Model.NewsCurrentPage)
+    {
+        <section class="NewsItem">
+            <div class="buttons">
+                @if (Request.IsAuthenticated && User.Identity.GetUserId<int>() == newsItem.UserId)
+                {
+                    <a href="#" class="deleteNews" data-url="@Url.Action("Delete", "News")" data-message="@Content.JS_ConfirmDeleteNewsItemMessage" newsId="@newsItem.Id" title="Delete news item"></a>
+                    @Html.ActionLink(" ", "Edit", "News", new {id = newsItem.Id}, htmlAttributes: new {@class = "editNews", title = "Edit news item"})
+                }
+            </div>
+            <h2>
+                @Html.ActionLink(newsItem.Title, "OpenNews", "News", routeValues: new {id = newsItem.Id, urlToken = newsItem.UrlToken}, htmlAttributes: new {@class = "open"})
+            </h2>
+            <img src="@newsItem.ImageSrc" class="thumbnail"/>
+            <div class="date">@Html.DisplayFor(modelItem => newsItem.PublishDate)</div>
+        </section>
+    }
+</main>
+<div class="pages">
+    @for (int i = 0; i < Model.TotalPages; i++)
+    {
+        if (i == Model.PageNumber)
+        {
+            @Html.Label((i + 1).ToString(), htmlAttributes: new { @class = "btn btn-primary" })
+        }
+        else
+        {
+            @Html.ActionLink((i + 1).ToString(), "Index", new { currentPageNumber = i}, htmlAttributes: new { @class = "btn btn-default" })
+        }
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/deleteNewsItem")
+}

@@ -1,0 +1,9 @@
+﻿@using NewsPortal.Managers.Ninject
+@model NewsPortal.Models.ToggleStorageInputModel
+
+@using (Html.BeginForm("Toggle", "Storage", FormMethod.Post, new { id = "toggleStorageForm", @class = "navbar-left" }))
+{
+    @Html.DropDownListFor(x => x.Storage, new SelectList(Enum.GetValues(typeof(Storage))), new { @class = "dropdown-toggle" })
+        
+    <input type="submit" value="Toggle news storage" class="btn btn-primary btn-xs"/>
+}

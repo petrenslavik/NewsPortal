@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="Data Access Layer" namespace="Data_Access_Layer.Entities">
+  <class name="User" table="Users" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="int">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="FirstName"/>
+    <property name="Surname" column="LastName"/>
+    <property name="UserName" column="Login"/>
+    <property name="PasswordHash" column="Password"/>
+    <property name="Email" />
+    <property name="ConfirmEmail" />
+  </class>
+</hibernate-mapping>

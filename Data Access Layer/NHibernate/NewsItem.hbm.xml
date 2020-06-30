@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="Data Access Layer" namespace="Data_Access_Layer.Entities">
+  <class name="NewsItem" table="News" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="int">
+      <generator class="native" />
+    </id>
+    <property name="Title" />   
+    <property name="Text" />
+    <property name="PublishDate" column="PublishDate"/>
+    <property name="ImageSrc" />
+    <property name="UserId"/>
+  </class>
+</hibernate-mapping>

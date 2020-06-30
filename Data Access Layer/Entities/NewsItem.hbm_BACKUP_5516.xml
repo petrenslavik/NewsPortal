@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="NewsPortal" namespace="NewsPortal.BusinessEntities">
+  <class name="NewsItem" table="News" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="int">
+      <generator class="native" />
+    </id>
+<<<<<<< HEAD
+    <property name="Title" type="string"/>
+    <property name="Text" type="string"/>
+    <property name="PublishDate" column="PublishDate"/>
+    <property name="ImageSrc" type="string"/>
+=======
+    <property name="Title" />
+    <property name="Text" />
+    <property name="PublishDate" column="PublishDate"/>
+    <property name="ImageSrc" />
+>>>>>>> a04a7ee5b823676d635b4168a1ff1073522d9c78
+  </class>
+</hibernate-mapping>

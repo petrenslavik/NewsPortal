@@ -1,0 +1,196 @@
+.header {
+    color: white;
+    font: 36px Belinda, sans-serif;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.News {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.entered {
+    cursor: default;
+}
+
+.header #logo {
+    text-decoration: none;
+}
+
+.header a:hover {
+    text-decoration: none;
+}
+
+.field-validation-valid {
+    color: red;
+}
+
+#validationSummary {
+    color: red;
+}
+
+.col-md-10 > img {
+    width: 200px;
+    height: 200px;
+}
+
+.News {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'Belinda';
+    src: url(../fonts/belinda.otf);
+}
+
+
+.NewsItem {
+    border: 1px solid black;
+    width: 300px;
+    word-wrap: break-word;
+    margin: 5px;
+    position: relative;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+    .NewsItem > img {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .NewsItem > h2 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        margin: auto 0;
+        vertical-align: middle;
+    }
+
+.button {
+    float: right;
+    margin-left: 25px;
+    margin-top: -50px;
+}
+
+.registration {
+    margin-right: 85px;
+}
+
+.login {
+    margin-right: 15px;
+}
+
+.logout {
+    margin-right: 25px;
+}
+
+.NewsItem > img {
+    width: 200px;
+    height: 200px;
+}
+
+.date {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+}
+
+section.NewsItem > .buttons {
+    box-sizing: border-box;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.editNews {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    background-image: url(../Content/Images/System/Icons/EditIcon.png);
+}
+
+.deleteNews {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-left: 255px;
+    background-image: url(../Content/Images/System/Icons/DeleteIcon.png);
+}
+
+.show-new {
+    margin: 0 auto;
+    width: 90%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.new-photo {
+    width: 300px;
+    height: 300px;
+    float: right;
+    object-fit: fill;
+    padding: 0 0 10px 15px;
+}
+
+.new-body p {
+    font-size: 16pt;
+    text-align: justify;
+}
+
+.first-link {
+    margin-top: 20px;
+    display: block;
+    width: 125px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid grey;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.new-date {
+    display: block;
+    text-align: right;
+    clear: both;
+}
+
+.open {
+    color: black;
+}
+
+    .open:hover {
+        text-decoration: none;
+    }
+
+.thumbnail {
+    border: 1px solid black;
+    margin: 10px auto;
+}
+
+.labelForChoosingImge {
+    float: left;
+}
+
+    .labelForChoosingImge::after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+
+.confirmEmail {
+    font: 48px Belinda, sans-serif;
+    color: blueviolet;
+}

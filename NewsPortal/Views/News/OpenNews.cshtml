@@ -1,0 +1,38 @@
+﻿@model NewsPortal.Models.NewsItemViewModel
+@using Content = EngContent.ContentEng;
+
+@{
+    ViewBag.Title = Content.View_Title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="show-new">
+    <h1>
+        @Html.DisplayFor(model => model.Title)
+    </h1>
+    <div class="new-body">
+        <img src="@Model.ImageSrc" class="new-photo" />
+        <p>@Html.Raw(Model.Text)</p>
+        <span class="new-date">@Html.DisplayFor(model => model.PublishDate)</span>
+    </div>
+</div>
+
+@if (Request.IsAuthenticated)
+{
+    @Html.Action("Create", "Comment", new { id = Model.Id })
+}
+else
+{
+    <p>@Content.OpenNews_View_AddComments</p>
+}
+
+<div class="comments" newsid="@Model.Id">
+    @Html.Action("ListOfComments", "Comment", new { newsId = Model.Id, currentPageNumber = 0 })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/commentsPaging")
+}

@@ -1,0 +1,19 @@
+﻿@model NewsPortal.Models.NewsItemViewModel
+@using Content = EngContent.ContentEng;
+
+@{
+    ViewBag.Title = Content.PreviewNewsItem_View_Title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="show-new">
+    <h1>
+        @Html.Raw(Model.Title)
+    </h1>
+    <div class="new-body">
+        <img src="@Model.ImageSrc" alt="Picture" class="new-photo" />
+        <p>@Html.Raw(Model.Text)</p>
+        <span class="new-date">@Html.Raw(Model.PublishDate)</span>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model NewsPortal.Models.NewsItemViewModel
+@using Content = EngContent.ContentEng;
+
+@{
+    ViewBag.Title = Content.Create_News_View_Title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (@Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data", id = "formCreate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div>
+            @Html.ActionLink(Content.View_BackToNewsList, "Index", "News")
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @id = "title", @maxlength = "150" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, Content.View_NewsItemContentLabel, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Text, htmlAttributes: new { @id = "Text", @contenteditable = "true" })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label(Content.Create_News_View_NewsItemChooseImgLabel, htmlAttributes: new { @class = "labelForChoosingImge" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Picture, new { type = "file", @id = "uploadPicture", name = "picture", @value = ""})
+                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                <input type="submit" value="Add news item" class="btn btn-default" />
+                <span id="validationSummary"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                <input type="button" value="Preview" class="btn btn-default" id="previewNews"  data-url="@Url.Action("PreviewNewsItem", "News")"/>
+            </div>
+        </div>
+    </div>
+
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/ckeditor")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/newsItems"),
+    @Scripts.Render("~/bundles/jqueryval")
+}
